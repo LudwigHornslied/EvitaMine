@@ -1,0 +1,8 @@
+main: com.tistory.hornslied.evitaonline.mine.EvitaMineMain
+name: EvitaMine
+version: 1.0
+author: Ludwig Hornslied
+depend: [EvitaCore, Towny]
+commands:
+  mineblock:
+    aliases: [광산블록, 광산블럭]
