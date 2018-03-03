@@ -71,15 +71,14 @@ public class MineBlockManager implements Listener {
 
 					if (townName == null) {
 						block.setMetadata("mine", new FixedMetadataValue(EvitaMineMain.getInstance(), null));
-						continue;
-					}
+					} else {
+						try {
+							Town town = TownyUniverse.getDataSource().getTown(townName);
 
-					try {
-						Town town = TownyUniverse.getDataSource().getTown(townName);
-
-						block.setMetadata("mine", new FixedMetadataValue(EvitaMineMain.getInstance(), town));
-					} catch (NotRegisteredException e) {
-						rs.deleteRow();
+							block.setMetadata("mine", new FixedMetadataValue(EvitaMineMain.getInstance(), town));
+						} catch (NotRegisteredException e) {
+							rs.deleteRow();
+						}
 					}
 
 					if (block.getType() == Material.AIR)
